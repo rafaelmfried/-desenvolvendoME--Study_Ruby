@@ -1,6 +1,5 @@
 # Parameters, Unpacking, Variables
 
-
 first, second, third = ARGV
 
 variable = $stdin.gets.chomp
