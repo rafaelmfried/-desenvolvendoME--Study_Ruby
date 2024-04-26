@@ -19,7 +19,7 @@ module Ex25
         puts word
     end
 
-    def Ex25.sort sentence(sentence)
+    def Ex25.sort_sentence(sentence)
         words = Ex25.break_words(sentence)
         return Ex25.sort_words(words)
     end
