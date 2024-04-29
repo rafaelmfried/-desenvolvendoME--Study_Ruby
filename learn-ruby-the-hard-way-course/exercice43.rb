@@ -11,18 +11,18 @@ end
 
 class Engine
     def initialize(scene_map)
-        @scene_map =scene_map
+        @scene_map = scene_map
     end
 
     def play()
         current_scene = @scene_map.opening_scene()
-        last_scene = @scene_map.next_scope('finished')
+        last_scene = @scene_map.next_scene('finished')
 
         while current_scene != last_scene
             next_scene_name = current_scene.enter()
-            current_scene = @scene_map.next_scope(next_scene_name)
+            current_scene = @scene_map.next_scene(next_scene_name)
         end
-        # be sure to print out the last scene
+
         current_scene.enter()
     end
 end
@@ -36,7 +36,7 @@ class Death < Scene
     ]
 
     def enter()
-        puts @quips[rand(0..(@@quips.length - 1))]
+        puts @@quips[rand(0..(@@quips.length - 1))]
         exit(1)
     end
 end
@@ -80,7 +80,7 @@ class CentralCorridor < Scene
             puts "The Gothon stops, tries not to laugh, then busts out laughing and can't move."
             puts "While he's laughing you run up and shoot him square in the head"
             puts "putting him down, then jump through the Weapon Armory door."
-            return 'leaser_weapon_armory'
+            return 'laser_weapon_armory'
         else 
             puts "DOES NOT COMPUTE!"
             return 'central_corridor'
@@ -99,7 +99,10 @@ class LaserWeaponArmory < Scene
         puts "get the bomb.  The code is 3 digits."
         
         code = "#{rand(1..9)}#{rand(1..9)}#{rand(1..9)}"
-
+        
+        # Code Cheat
+        puts "The code is #{code}"
+        
         print "[keypad]>"
         
         guess = $stdin.gets.chomp
@@ -175,6 +178,9 @@ class EscapePod < Scene
         puts "do you take?"
 
         good_pod = rand(1..5)
+        # Pod cheat
+        puts "The good_pod number is #{good_pod}"
+        
         print "[pod#]> "
         guess = $stdin.gets.chomp.to_i
 
@@ -203,16 +209,29 @@ class Finished < Scene
 end
 
 class Map
+    @@scenes = {
+        'central_corridor' => CentralCorridor.new(),
+        'laser_weapon_armory' => LaserWeaponArmory.new(),
+        'the_bridge' => TheBridge.new(),
+        'escape_pod' => EscapePod.new(),
+        'death' => Death.new(),
+        'finished' => Finished.new()
+    }
+
     def initialize(start_scene)
+        @start_scene = start_scene
     end
 
-    def next_scope(scene_name)
+    def next_scene(scene_name)
+        val = @@scenes[scene_name]
+        return val
     end
 
     def opening_scene()
+        return next_scene(@start_scene)
     end
 end
 
-a_map = Map.new('central corridor')
+a_map = Map.new('central_corridor')
 a_game = Engine.new(a_map)
 a_game.play()
