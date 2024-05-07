@@ -1,25 +1,28 @@
-# You Make a Game
+#     You Make a Game
 
-# Its a chalenge to create a game in ruby, diferent the first created. But we need to use class, method and module.
+#     Its a chalenge to create a game in ruby, diferent the first created. But we need to use class, method and module.
 
-# I will use the game maded in other class like a base, but i want to make a different history and different paths. 
-# Like in salvador we can go to feira de santana, barimbau by car and ilheus, porto seguro by ship.
-# I want to make a treasure hunt the hero will start in salvador and can choice different path to find the treasure
-# I want to make the hero equip different things that can help him to find the treasure
-# Like the hero rent a car but this spend money, he can earn money working in some places that he can find inside the city.
-# In the history the path is not important, but the main path is perfect to solve all puzzles quickly
-# But the hero can choice travel and return to different cities, working in different places and earn money with this.
-# Some works in the path will be trapped for the hero, this way i hope that the hero learn to make better choices
-# Move to another city spend money and energy, the hero have to charge your energy in a hotel, this needs to spend money.
-# The treasure is hidden inside a home that the hero need to buy, each city have a home to buy, but randomly will but hidden in some house
-# NPC that the hero can talk will help the hero in this path, but some NPC will give to the hero not so good advertisements.
-# The challenge of this game is the hero choice the better jobs and the better advertising about your jorney. 
-# If the money and the energy of the hero over, the hero die.
-# If the hero falls in a trap he dies.
-# The city that the hero choice is the only place that can recharge the energy without spend money. Each city have different values to sleep and travel.
-# And some cities is impossible go to another city without pass throght a middle point city. Like is impossible go feira de santana -> eunapolis without pass
-# throught ilheus, and is impossible go directly from ilheus -> porto seguro without pass throught eunapolis. This is only throught by car transport
-# using a ship is only possible access cities that have a sea. The target of the game is move different cities and find the treasure.
+#     O Tesouro Perdido do Pirata Brasileiro
+#     No mundo de "O Tesouro Perdido do Pirata Brasileiro", os jogadores assumem o papel de aventureiros destemidos em busca da fortuna escondida de um lendário pirata que navegou pelas águas do Brasil séculos atrás. Cada jogador começa sua jornada em sua cidade natal, onde tem uma casa para descansar e recarregar suas energias.
+#     Os jogadores precisam gerenciar cuidadosamente seus recursos de energia e dinheiro para sobreviver e progredir. Se um jogador ficar sem energia ou sem recursos financeiros, sua jornada chegará a um fim prematuro.
+#     À medida que os jogadores viajam pelo vasto mundo do jogo, encontram uma variedade de cidades, cada uma com sua própria atmosfera, cultura e desafios únicos. Em cada cidade, os jogadores podem interagir com NPCs que podem fornecer informações valiosas sobre o paradeiro do tesouro ou apresentar obstáculos que precisam ser superados.
+#     Para se locomover entre as cidades, os jogadores gastam energia e recursos financeiros, com o custo variando de acordo com a distância entre as cidades. Em cidades que não são suas cidades natais, os jogadores também precisam pagar por hospedagem para recarregar sua energia.
+#     Além de procurar pistas sobre o tesouro perdido, os jogadores podem trabalhar em diferentes empregos em cada cidade para obter recursos financeiros. No entanto, o trabalho também consome energia, exigindo um equilíbrio cuidadoso entre ganhar dinheiro e conservar energia para continuar a busca pelo tesouro.
+#     À medida que os jogadores avançam na busca pelo tesouro perdido, eles encontram desafios cada vez mais difíceis e precisam tomar decisões estratégicas sobre como alocar seus recursos limitados. Aqueles que conseguirem superar os obstáculos e decifrar as pistas finalmente terão a chance de desvendar o segredo do tesouro e reivindicar sua fortuna.
+    
+#     Criar nomes das cidades, npcs e dialogos
+
+
+#     Grafo das Cidades do Jogo:
+#     Este grafo representaria as cidades e suas conexões, com os custos de energia e dinheiro associados a cada conexão entre as cidades.
+#     Os nós do grafo seriam as cidades do jogo, e as arestas seriam as conexões entre as cidades.
+#     Você pode usar este grafo para calcular rotas entre cidades, determinar os custos de viagem e navegação pelo mapa do jogo.
+#     Grafo das Conexões entre NPCs:
+#     Este grafo representaria as interações entre os NPCs do jogo, com as opções de diálogo e os resultados associados a cada interação.
+#     Os nós do grafo representariam os estados ou cenas do diálogo, e as arestas representariam as transições entre esses estados.
+#     Você pode usar este grafo para controlar o fluxo de diálogo entre NPCs e jogadores, determinar as opções disponíveis para o jogador em cada interação e calcular os resultados das escolhas do jogador.
+    
+
 
 class Scene
     def enter()
