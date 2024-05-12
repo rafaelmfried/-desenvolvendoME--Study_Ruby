@@ -55,4 +55,4 @@ Sinta-se à vontade para contribuir com novos exercícios, melhorias nos existen
 
 ## Contato
 
-Para mais informações, entre em contato com rafaelmfried ou visite [DesenvolvendoME](http://desenvolvendo.me).
+Para mais informações, entre em contato com rafaelmfried ou visite [DesenvolvendoME](https://www.linkedin.com/company/desenvolvendome/about/).
