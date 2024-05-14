@@ -31,7 +31,7 @@ class Account
       debit(amount)
       destination_account.credit(amount)
     else
-      puts "Saldo insufienciente!"
+      raise "Saldo Insufienciente!"
     end
   end
 end
