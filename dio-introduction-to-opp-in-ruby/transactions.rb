@@ -27,7 +27,13 @@ conta_3.transfer(conta_1, 500)
 puts "Conta de id = #{conta_1.account_id} pertencente a #{conta_1.name} com saldo: %05d" % conta_1.balance
 puts "Conta de id = #{conta_3.account_id} pertencente a #{conta_3.name} com saldo de %05d e taxa de #{conta_3.tax}" % conta_3.balance
 
-conta_2.transfer(conta_3, 800)
+
+
+begin
+  conta_2.transfer(conta_3, 800)
+rescue StandardError => my_err
+  p "Não foi possivel transferir: #{my_err.message}"
+end
 
 puts "Conta de id = #{conta_2.account_id} pertencente a #{conta_2.name} com saldo: %05d" % conta_2.balance
 puts "Conta de id = #{conta_3.account_id} pertencente a #{conta_3.name} com saldo de %05d e taxa de #{conta_3.tax}" % conta_3.balance
@@ -36,3 +42,21 @@ conta_2.transfer(conta_3, 700)
 
 puts "Conta de id = #{conta_2.account_id} pertencente a #{conta_2.name} com saldo: %05d" % conta_2.balance
 puts "Conta de id = #{conta_3.account_id} pertencente a #{conta_3.name} com saldo de %05d e taxa de #{conta_3.tax}" % conta_3.balance
+
+begin
+  conta_3.transfer(conta_2, 5190)
+rescue StandardError => my_err
+  p "Não foi possivel transferir: #{my_err.message}"
+end
+puts "Conta de id = #{conta_2.account_id} pertencente a #{conta_2.name} com saldo: %05d" % conta_2.balance
+puts "Conta de id = #{conta_3.account_id} pertencente a #{conta_3.name} com saldo de %05d e taxa de #{conta_3.tax}" % conta_3.balance
+
+begin
+  conta_3.transfer(conta_2, 5180)
+rescue StandardError => my_err
+  p "Não foi possivel transferir: #{my_err.message}"
+end
+
+puts "Conta de id = #{conta_2.account_id} pertencente a #{conta_2.name} com saldo: %05d" % conta_2.balance
+puts "Conta de id = #{conta_3.account_id} pertencente a #{conta_3.name} com saldo de %05d e taxa de #{conta_3.tax}" % conta_3.balance
+

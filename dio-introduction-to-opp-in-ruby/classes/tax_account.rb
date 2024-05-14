@@ -14,9 +14,6 @@ class TaxAccount < Account
   end
 
   def transfer(destination_account, amount)
-    if @balance - amount - tax >= 0
-      super(destination_account, amount)
-      @balance -= tax
-    end
+    super(destination_account, (amount + @tax))
   end
 end
