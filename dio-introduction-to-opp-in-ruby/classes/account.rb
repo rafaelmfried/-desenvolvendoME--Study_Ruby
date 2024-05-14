@@ -17,10 +17,21 @@ class Account
     Account.new(name: name, id: @@id, initial_deposit: initial_deposit)
   end
 
+  private def debit(amount)
+    @balance -= amount
+  end
+  
+  protected def credit(amount)
+    @balance += amount
+  end
+
+  
   def transfer(destination_account, amount)
     if balance - amount >= 0
-      destination_account.balance += amount
-      @balance -= amount
+      debit(amount)
+      destination_account.credit(amount)
+    else
+      puts "Saldo insufienciente!"
     end
   end
 end
