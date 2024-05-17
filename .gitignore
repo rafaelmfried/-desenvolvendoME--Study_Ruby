@@ -1,3 +1,6 @@
+# To app folder, each app will be posted in github.
+/app
+
 *.gem
 *.rbc
 /.config
