@@ -2,7 +2,8 @@ class Lexicon
 
   LEXICON = {
     'direction' =>  ['north', 'south', 'east'],
-    'verb' => ['go', 'kill', 'eat']
+    'verb' => ['go', 'kill', 'eat'],
+    'stop' => ['the', 'in', 'of'],
   }
 
   def self.scan(sentence)
