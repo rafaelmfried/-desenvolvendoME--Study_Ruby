@@ -12,8 +12,8 @@ Gem::Specification.new do |spec|
   spec.homepage      = "http://domainforproject.com/"
   spec.license       = "MIT"
 
-  spec.files         = ['lib/NAME.rb']
-  spec.executables   = ['bin/NAME']
-  spec.test_files    = ['tests/test_NAME.rb']
+  spec.files         = ['lib/lexicon.rb']
+  spec.executables   = ['bin/lexicon']
+  spec.test_files    = ['tests/test_lexicon.rb']
   spec.require_paths = ["lib"]
 end
