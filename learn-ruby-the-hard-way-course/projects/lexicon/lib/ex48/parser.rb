@@ -1,9 +1,11 @@
-require_relative 'parser_error'
 require_relative 'sentence'
 
 module Parser
+  class ParserError < Exception
+  end
+
   def self.peek(word_list)
-    word_list ? word_list[0] : nil
+    word_list && word_list[0] ? word_list[0][0] : nil
   end
 
   def self.match(word_list, expecting)
@@ -42,25 +44,26 @@ module Parser
     end
   end
 
-  def self.parse_subject(word_list, subj)
+  def self.parse_subject(word_list)
+    skip(word_list, 'stop')
+    next_word = peek(word_list)
+
+    if next_word == 'noun'
+      return match(word_list, 'noun')
+    elsif next_word == 'verb'
+      return ['noun', 'player']
+    else
+      raise ParserError, "Expected a noun or verb next."
+    end
+  end
+
+
+
+  def self.parse_sentence(word_list)
+    subj = parse_subject(word_list)
     verb = parse_verb(word_list)
     obj = parse_object(word_list)
 
-    Sentence.new(subj, verb[1], obj[1])
-  end
-
-  def self.parse_sentence(word_list)
-    skip(word_list, 'stop')
-
-    start = peek(word_list)
-
-    if start == 'noun'
-      subj = match(word_list, 'noun')
-      parse_subject(word_list, subj[1])
-    elsif start == 'verb'
-      parse_subject(word_list, 'player')
-    else
-      raise ParserError, "Must start with subject, object or verb not: #{start}"
-    end
+    return Sentence.new(subj, verb, obj)
   end
 end
