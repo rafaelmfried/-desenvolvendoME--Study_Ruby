@@ -1,5 +1,5 @@
 class Sentence
-  def initialize(subject = ['noun', 'player'], verb, obj)
+  def initialize(subject, verb, obj)
       @subject = subject[1]
       @verb = verb[1]
       @object = obj[1]

@@ -1,6 +1,5 @@
 require 'test/unit'
 require_relative '../lib/ex48/parser'
-require_relative '../lib/ex48/parser_error'
 
 class TestParser < Test::Unit::TestCase
   def test_parse_sentence_with_verb_and_direction
